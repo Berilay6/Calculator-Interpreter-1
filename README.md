@@ -87,19 +87,23 @@ To compile and run the calculator interpreter, follow these steps:
 - Ensured proper error handling for invalid characters (e.g., `2 + &`).
 - Tested edge cases, including division by zero and floating-point precision issues.
 
-### Example Inputs and Outputs
+## 4️⃣ Example Inputs and Outputs
 
--Input: 3.5 + 2.1 \* (4 - 1)
--Output: Result=9.80
+```plaintext
+Input: 3.5 + 2.1 * (4 - 1)
+Output: Result = 9.80
 
--Input: 2\*\*2 - 7
--Output: Result= -3.0
+Input: 2**2 - 7
+Output: Result = -3.0
 
--Input: 4g8hk
--Output: Invalid character: g
-         Invalid character: h
-         Invalid character: k
-         Error: Invalid characters in input
+Input: 4g8hk
+Output:
+Invalid character: g
+Invalid character: h
+Invalid character: k
+Error: Invalid characters in input
 
--Input: 5/0
--Output: Error: Divide by zero error
+Input: 5/0
+Output: Error: Divide by zero error
+```
+
