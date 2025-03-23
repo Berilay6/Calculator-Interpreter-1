@@ -3,15 +3,18 @@
 #include <stdlib.h>
 #include <math.h>
 
-// error handling
+// Error handling
 void yyerror(const char *s) {
     fprintf(stderr, "Error: %s\n", s);
 }
 
+// invalid characters in lex file
+extern int invalid_char_count;
+
 int yylex();
 %}
 
-// define YYSTYPE as a union
+// Define YYSTYPE as a union
 %union {
     float val;
 }
@@ -34,8 +37,14 @@ int yylex();
 //grammar rules
 %%
 ArithmeticExpression: expr{ 
-	printf("\nResult=%.2f\n", $1); 
-  	return 0; 
+	// invalid character error
+    if (invalid_char_count > 0) {
+        yyerror("Invalid characters in input");
+        exit(1);
+    }
+   
+    printf("\nResult=%.2f\n", $1); 
+    return 0; 
   }; 
 
 expr:
