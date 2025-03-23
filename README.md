@@ -94,7 +94,7 @@ Input: 3.5 + 2.1 * (4 - 1)
 Output: Result = 11.80
 
 Input: 2**2 - 7
-Output: Result = -3.0
+Output: Result = -3.00
 
 Input: 4ghk
 Output:
