@@ -2,6 +2,8 @@
  #include <stdio.h>
  #include "y.tab.h"
  extern YYSTYPE yylval;
+ 
+ int invalid_char_count = 0;  
 %}
 
 %%
@@ -16,7 +18,10 @@
 \*\*            { return EXPONENT; }
 [ \t\r]+       { /* ignore whitespaces */ }
 \n             { return 0;}
-.              { printf("Invalid character: %s\n", yytext); }
+.              { //invalid section  
+                 printf("Invalid character: %s\n", yytext);
+                 invalid_char_count++;
+	       }
 
 %%
 
