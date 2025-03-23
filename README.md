@@ -96,7 +96,7 @@ Output: Result = 9.80
 Input: 2**2 - 7
 Output: Result = -3.0
 
-Input: 4g8hk
+Input: 4ghk
 Output:
 Invalid character: g
 Invalid character: h
