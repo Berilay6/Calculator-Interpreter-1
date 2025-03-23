@@ -1,8 +1,9 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-// Error handling
+// error handling
 void yyerror(const char *s) {
     fprintf(stderr, "Error: %s\n", s);
 }
@@ -10,19 +11,30 @@ void yyerror(const char *s) {
 int yylex();
 %}
 
+// define YYSTYPE as a union
+%union {
+    float val;
+}
+
 //tokens
-%token NUMBER 
-%token PLUS MINUS TIMES DIVIDE
+%token <val> NUMBER 
+%token PLUS MINUS TIMES DIVIDE EXPONENT
 %token LPAREN RPAREN
 
+//associativity for solving ambiguity
 %left PLUS MINUS
 %left TIMES DIVIDE
+%left EXPONENT
 %left LPAREN RPAREN
+
+// define expression type
+%type <val> expr
+
 
 //grammar rules
 %%
 ArithmeticExpression: expr{ 
-	printf("\nResult=%d\n", $$); 
+	printf("\nResult=%.2f\n", $1); 
   	return 0; 
   }; 
 
@@ -38,6 +50,7 @@ expr:
             $$ = $1 / $3;
         }
       }
+    | expr EXPONENT expr { $$ = pow($1, $3); } //exponential support
     | LPAREN expr RPAREN { $$ = $2; }
     | NUMBER { $$ = $1; }
     ;
