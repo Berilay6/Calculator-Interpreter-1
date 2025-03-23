@@ -11,13 +11,21 @@ int yylex();
 %}
 
 //tokens
-%token NUMBER
+%token NUMBER 
 %token PLUS MINUS TIMES DIVIDE
 %token LPAREN RPAREN
 
-%%
+%left PLUS MINUS
+%left TIMES DIVIDE
+%left LPAREN RPAREN
 
 //grammar rules
+%%
+ArithmeticExpression: expr{ 
+	printf("\nResult=%d\n", $$); 
+  	return 0; 
+  }; 
+
 expr:
       expr PLUS expr   { $$ = $1 + $3; }
     | expr MINUS expr  { $$ = $1 - $3; }
@@ -37,7 +45,7 @@ expr:
 %%
 
 int main() {
-    printf("Calculator Interpreter. Your calculation: \n");
+    printf("Calculator Interpreter. Enter any Arithmetic Expression: \n");
     yyparse();
     return 0;
 }

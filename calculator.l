@@ -1,6 +1,7 @@
 %{
-#include <stdio.h>
-#include "y.tab.h"
+ #include <stdio.h>
+ #include "y.tab.h"
+ extern int yylval;
 %}
 
 %%
@@ -12,7 +13,8 @@
 \/             { return DIVIDE; }
 \(             { return LPAREN; }
 \)             { return RPAREN; }
-[ \t\n]+       { /* ignore whitespaces */ }
+[ \t\r]+       { /* ignore whitespaces */ }
+\n             { return 0;}
 .              { printf("Invalid character: %s\n", yytext); }
 
 %%
