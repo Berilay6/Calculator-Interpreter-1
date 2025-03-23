@@ -91,7 +91,7 @@ To compile and run the calculator interpreter, follow these steps:
 
 ```plaintext
 Input: 3.5 + 2.1 * (4 - 1)
-Output: Result = 9.80
+Output: Result = 11.80
 
 Input: 2**2 - 7
 Output: Result = -3.0
