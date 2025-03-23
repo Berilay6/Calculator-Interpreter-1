@@ -89,17 +89,17 @@ To compile and run the calculator interpreter, follow these steps:
 
 ### Example Inputs and Outputs
 
-Input: 3.5 + 2.1 \* (4 - 1)
-Output: Result=9.80
+-Input: 3.5 + 2.1 \* (4 - 1)
+-Output: Result=9.80
 
-Input: 2\*\*2 - 7
-Output: Result= -3.0
+-Input: 2\*\*2 - 7
+-Output: Result= -3.0
 
-Input: 4g8hk
-Output: Invalid character: g
-Invalid character: h
-Invalid character: k
-Error: Invalid characters in input
+-Input: 4g8hk
+-Output: Invalid character: g
+         Invalid character: h
+         Invalid character: k
+         Error: Invalid characters in input
 
-Input: 5/0
-Output: Error: Divide by zero error
+-Input: 5/0
+-Output: Error: Divide by zero error
