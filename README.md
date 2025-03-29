@@ -1,6 +1,8 @@
 # Calculator-Interpreter-1
 
 ## This program implements a simple calculator using Lex and Yacc.
+## Owner
+Beril Aydın 231101002
 
 ## 1️⃣ How to Compile and Run
 
